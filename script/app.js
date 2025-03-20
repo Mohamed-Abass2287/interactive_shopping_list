@@ -26,13 +26,24 @@ function displayItems() {
         const li = createAnElement('li');
         addText(li, item);
         appendChild(ol, li);
-    
-     listen(li, "click", toggleChecked);
+
+     //li.addEventListener("click",()=> togglechecked(li))
+     listen(li, "click",()=> toggleChecked(li));
 
      function toggleChecked(){
         li.classlist.toggle("checked");
-
-     }
+    }
      
     });
+}
+//const form=diocument.querySelector("form")
+const form =select("form");
+
+form.addEventListener("submit",additem)
+listen(form,"submit", additem)
+
+function additem(event){
+    event.preventDefault();
+
+    console.dir(event.target)
 }
